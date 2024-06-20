@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/itemArticleList">
+
+    <fragment
+        android:id="@+id/itemDoctorList"
+        android:name="com.example.myapplication.view.DoctorListFragment"
+        android:label="fragment_doctor_list"
+        tools:layout="@layout/fragment_doctor_list" >
+        <action
+            android:id="@+id/actionDoctorDetail"
+            app:destination="@id/doctorDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemFacilityList"
+        android:name="com.example.myapplication.view.FacilityListFragment"
+        android:label="fragment_facility_list"
+        tools:layout="@layout/fragment_facility_list" />
+    <fragment
+        android:id="@+id/itemProfile"
+        android:name="com.example.myapplication.view.MyProfileFragment"
+        android:label="fragment_my_profile"
+        tools:layout="@layout/fragment_my_profile" >
+        <action
+            android:id="@+id/actionProfileDetail"
+            app:destination="@id/myProfileDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemTransactionList"
+        android:name="com.example.myapplication.view.TransactionListFragment"
+        android:label="fragment_transaction_list"
+        tools:layout="@layout/fragment_transaction_list" />
+    <fragment
+        android:id="@+id/itemArticleList"
+        android:name="com.example.myapplication.view.ArticleListFragment"
+        android:label="fragment_article_list"
+        tools:layout="@layout/fragment_article_list" >
+        <action
+            android:id="@+id/actionArticleDetail"
+            app:destination="@id/articleDetailFragment" />
+        <action
+            android:id="@+id/actionItemArticleListLoginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleDetailFragment"
+        android:name="com.example.myapplication.view.ArticleDetailFragment"
+        android:label="ArticleDetailFragment"
+        tools:layout="@layout/fragment_article_detail" >
+        <argument
+            android:name="articleId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.myapplication.view.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/actionRegist"
+            app:destination="@id/registFragment" />
+        <action
+            android:id="@+id/actionHome"
+            app:destination="@id/itemArticleList" />
+    </fragment>
+    <fragment
+        android:id="@+id/registFragment"
+        android:name="com.example.myapplication.view.RegistFragment"
+        android:label="fragment_regist"
+        tools:layout="@layout/fragment_regist" >
+        <action
+            android:id="@+id/actionBackToLogin"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myProfileDetailFragment"
+        android:name="com.example.myapplication.view.MyProfileDetailFragment"
+        android:label="fragment_my_profile_detail"
+        tools:layout="@layout/fragment_my_profile_detail" >
+        <action
+            android:id="@+id/actionChangePassword"
+            app:destination="@id/confirmationPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmationPasswordFragment"
+        android:name="com.example.myapplication.view.ConfirmationPasswordFragment"
+        android:label="fragment_confirmation_password"
+        tools:layout="@layout/fragment_confirmation_password" >
+        <action
+            android:id="@+id/actionNewPassword"
+            app:destination="@id/newPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newPasswordFragment"
+        android:name="com.example.myapplication.view.NewPasswordFragment"
+        android:label="fragment_new_password"
+        tools:layout="@layout/fragment_new_password" >
+        <action
+            android:id="@+id/actionBackToProfile"
+            app:destination="@id/itemProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorDetailFragment"
+        android:name="com.example.myapplication.view.DoctorDetailFragment"
+        android:label="fragment_doctor_detail"
+        tools:layout="@layout/fragment_doctor_detail" >
+        <argument
+            android:name="uuid"
+            app:argType="integer" />
+        <action
+            android:id="@+id/actionBookingDoctor"
+            app:destination="@id/bookingDoctorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookingDoctorFragment"
+        android:name="com.example.myapplication.view.BookingDoctorFragment"
+        android:label="BookingDoctorFragment" >
+        <argument
+            android:name="uuid"
+            app:argType="integer" />
+        <action
+            android:id="@+id/actionBookingConfirmation"
+            app:destination="@id/bookingConfirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookingConfirmationFragment"
+        android:name="com.example.myapplication.view.BookingConfirmationFragment"
+        android:label="BookingConfirmationFragment" >
+        <argument
+            android:name="uuid"
+            app:argType="integer" />
+        <argument
+            android:name="day"
+            app:argType="string" />
+        <argument
+            android:name="hour"
+            app:argType="string" />
+        <action
+            android:id="@+id/actionBookingReport"
+            app:destination="@id/bookingReportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookingReportFragment"
+        android:name="com.example.myapplication.view.BookingReportFragment"
+        android:label="BookingReportFragment" >
+        <argument
+            android:name="uuid"
+            app:argType="integer" />
+        <argument
+            android:name="day"
+            app:argType="string" />
+        <argument
+            android:name="hour"
+            app:argType="string" />
+        <action
+            android:id="@+id/actionBackToDoctorList"
+            app:destination="@id/itemDoctorList" />
+    </fragment>
+
+</navigation>
